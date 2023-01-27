@@ -747,15 +747,21 @@ export const state = () => ({
   aboutMe: [
     {
       id: uuidv4(),
-      bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt totam dolorum, ducimus obcaecati, voluptas facilis molestias nobis ut quam natus similique inventore excepturi optio ipsa deleniti fugit illo. Unde, amet! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum illo necessitatibus perspiciatis! Aperiam perferendis labore temporibus, eos culpa corporis recusandae quas, fuga voluptatibus nesciunt odit libero tenetur neque consequatur ea.",
+      bio: "I'm Carla, I'm 22 years old and I'm a front-end developer with two years of experience in the market but always passionate about website development. Currently I'm using the Vue.js/Nuxt.js framework and developing on it, but during my one and a half year internship I used Angular framework with TypeScript. I graduated in Systems Analysis and Development in 2022, where I also acquired my skills in game development using Unity and Construct 3."
     },
     {
       id: uuidv4(),
-      bio: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil vel illum asperiores dignissimos cumque quibusdam et fugiat voluptatem nobis suscipit explicabo, eaque consequatur nesciunt, fugit eligendi corporis laudantium adipisci soluta?",
+      bio: "Game enthusiast, especially cozy games and I love horror stuff. Besides, I am a great art lover and I try to do some different things sometimes, whether it's drawing or trying something new that sparks my creativity. Something about my personality that I feel challenged by is ADHD and I still plan to share about this in some article or something. In the future I will have a tab here to share experiences, learnings and challenges. Coming soon...",
     },
   ],
   copyrightDate: new Date().getFullYear(),
   socialProfiles: [
+    {
+      id: uuidv4(),
+      name: "LinkedIn",
+      icon: "linkedin",
+      url: "https://www.linkedin.com/in/carla-sama/",
+    },
     {
       id: uuidv4(),
       name: "GitHub",
