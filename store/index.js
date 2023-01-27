@@ -751,7 +751,7 @@ export const state = () => ({
     },
     {
       id: uuidv4(),
-      bio: "Game enthusiast, especially cozy games and horror stuff. Besides, I am a great art lover and I try to do some different things sometimes, whether it's drawing or trying something new that sparks my creativity. Something about my personality that I feel challenged by is ADHD and I still plan to share about this in some article or something. In the future I will have a tab here to share experiences, learnings and challenges. Coming soon...",
+      bio: "Game enthusiast, especially cozy games and I love horror stuff. Besides, I am a great art lover and I try to do some different things sometimes, whether it's drawing or trying something new that sparks my creativity. Something about my personality that I feel challenged by is ADHD and I still plan to share about this in some article or something. In the future I will have a tab here to share experiences, learnings and challenges. Coming soon...",
     },
   ],
   copyrightDate: new Date().getFullYear(),
