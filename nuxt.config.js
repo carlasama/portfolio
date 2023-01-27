@@ -2,7 +2,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   colorMode: {
-    classSuffix: "",
+    classSuffix: "light",
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
