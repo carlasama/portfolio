@@ -774,12 +774,12 @@ export const state = () => ({
       icon: "book",
       url: "https://medium.com/@carlasama",
     },
-    {
-      id: uuidv4(),
-      name: "Instagram",
-      icon: "instagram",
-      url: "https://instagram.com/cxrlasama",
-    },
+    // {
+    //   id: uuidv4(),
+    //   name: "Instagram",
+    //   icon: "instagram",
+    //   url: "https://instagram.com/cxrlasama",
+    // },
     {
       id: uuidv4(),
       name: "Buy me a coffee",
