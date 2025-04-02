@@ -8,12 +8,12 @@ const Projects: React.FC<ProjectsProps> = ({ onBack }) => {
   const projects = [
     {
       title: "Persepolis Escola",
-      description: "Hub de inovação socioambiental e tecnológico focado em capacitar jovens da periferia através de tecnologia e criatividade, promovendo autonomia e pensamento crítico.",
+      description: "Socio-environmental and technological innovation hub focused on empowering young people from underserved communities through technology and creativity, fostering autonomy and critical thinking.",
       technologies: ["Vue.js", "Vue Router", "Vuex", "Tailwind", "Responsive Design"],
       link: "https://persepolisescola.com/"
     },
     {
-      title: "Projeto 2",
+      title: "Project 2",
       description: "",
       technologies: [],
       link: "#"
@@ -24,10 +24,10 @@ const Projects: React.FC<ProjectsProps> = ({ onBack }) => {
   return (
     <div className="projects-content">
       <div className="projects-header">
-        <button className="terminal-button back-button" onClick={onBack}>
-          ← Voltar
+        <button className="back-button" onClick={onBack}>
+          ← Back
         </button>
-        <h2 className="terminal-title">PROJETOS DISPONÍVEIS</h2>
+        <h2 className="terminal-title">Featured Projects</h2>
       </div>
       
       <div className="projects-grid">
@@ -41,7 +41,7 @@ const Projects: React.FC<ProjectsProps> = ({ onBack }) => {
               ))}
             </div>
             <a href={project.link} className="project-link" target="_blank" rel="noopener noreferrer">
-              Ver Projeto
+              View Project
             </a>
           </div>
         ))}

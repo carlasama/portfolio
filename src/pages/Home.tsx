@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import AsciiArt from "../components/AsciiArt";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import About from "./About";
 
 const Home: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<"home" | "projects" | "contact">("home");
+  const [currentPage, setCurrentPage] = useState<"home" | "projects" | "contact" | "about">("home");
 
   const asciiArt = `
 
@@ -27,6 +28,10 @@ const Home: React.FC = () => {
 
     if (currentPage === "contact") {
       return <Contact onBack={() => setCurrentPage("home")} />;
+    }
+
+    if (currentPage === "about") {
+      return <About onBack={() => setCurrentPage("home")} />;
     }
 
     return (
@@ -59,15 +64,21 @@ const Home: React.FC = () => {
         <div className="cta-section">
           <button 
             className="terminal-button"
+            onClick={() => setCurrentPage("about")}
+          >
+            About Me
+          </button>
+          <button 
+            className="terminal-button"
             onClick={() => setCurrentPage("contact")}
           >
-            Contato
+            Contact
           </button>
           <button
             className="terminal-button"
             onClick={() => setCurrentPage("projects")}
           >
-            Ver Projetos
+            Projects
           </button>
         </div>
       </>
@@ -97,12 +108,12 @@ const Home: React.FC = () => {
 
         <div className="home-content">{renderContent()}</div>
 
-        <div className="status-bar">
+        {/* <div className="status-bar">
           <div className="status-item">CPU: 98% OPERATIONAL</div>
           <div className="status-item">NETWORK: CONNECTED</div>
           <div className="status-item">SECURITY: ACTIVE</div>
           <span>Última Atualização: {new Date().toLocaleDateString()}</span>
-        </div>
+        </div> */}
       </div>
 
       <div className="monitor-stand"></div>

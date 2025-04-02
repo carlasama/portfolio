@@ -9,9 +9,9 @@ const Contact: React.FC<ContactProps> = ({ onBack }) => {
     <div className="contact-content">
       <div className="contact-header">
         <button className="back-button" onClick={onBack}>
-          <span>←</span> Voltar
+          <span>←</span> Back
         </button>
-        <h2 className="terminal-title">CONTATO</h2>
+        <h2 className="terminal-title">CONTACT</h2>
       </div>
 
       <div className="contact-info">

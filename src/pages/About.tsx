@@ -1,53 +1,78 @@
-import TerminalNav from '../components/TerminalNav';
+import React from "react";
 
-const About = () => {
+interface AboutProps {
+  onBack: () => void;
+}
+
+const About: React.FC<AboutProps> = ({ onBack }) => {
   return (
-    <div className="terminal-container">
-      <div className="terminal-header">
-        <h1 className="terminal-title">C_A7-300-010</h1>
-        <div className="terminal-id">1273595-0-9</div>
+    <div className="about-content">
+      <div className="about-header">
+        <button className="back-button" onClick={onBack}>
+          <span>←</span> Back
+        </button>
+        <h2 className="terminal-title">ABOUT ME</h2>
       </div>
 
-      <div className="terminal-section">
-        <h2 className="terminal-section-title" data-id="924649-1-2">$ cat cyberpunk_movies.txt</h2>
-        <ul>
-          <li>Ghost in the Shell (1995)</li>
-          <li>The Matrix (1999)</li>
-          <li>Blade Runner 2049 (2017)</li>
-          <li>Altered Carbon (2018)</li>
-        </ul>
-      </div>
+      <div className="about-info">
+        <div className="info-section">
+          <p className="section-text">
+          I'm a front-end developer with 4 years of experience, specializing in Vue.js and passionate about building intuitive, high-performance web applications. I thrive on crafting seamless user experiences and continuously refining my coding skills. Currently, I'm expanding my expertise by exploring React and deepening my understanding of data structures and algorithms. I enjoy tackling complex problems and embracing challenges that push me to grow. While front-end development is my main focus, I'm also interested in backend technologies and always looking for opportunities to create meaningful digital experiences.
+          </p>
+        </div>
 
-      <div className="terminal-section">
-        <h2 className="terminal-section-title" data-id="724649-1-1">$ whoami</h2>
-        <p>Desenvolvedor Fullstack</p>
-        <p className="terminal-code">ID: 9575693-1-3</p>
-      </div>
+        <div className="info-section">
+          <h3 className="section-title">EXPERIENCE</h3>
+          <div className="experience-list">
+            <div className="experience-item">
+              <span className="experience-date">2022 - Presente</span>
+              <span className="experience-title">
+                Front-end Developer
+              </span>
+              <span className="experience-company">Ceisc</span>
+            </div>
+            <div className="experience-item">
+              <span className="experience-date">2024 - 2025</span>
+              <span className="experience-title">Front-end Developer</span>
+              <span className="experience-company">Mutant</span>
+            </div>
+            <div className="experience-item">
+              <span className="experience-date">2021 - 2022</span>
+              <span className="experience-title">Front-end Developer (Internship)</span>
+              <span className="experience-company">Time Energy</span>
+            </div>
+          </div>
+        </div>
 
-      <div className="terminal-section">
-        <h2 className="terminal-section-title" data-id="856390-2-3">$ ls ./skills/</h2>
-        <ul>
-          <li>React.js [v18.2.0]</li>
-          <li>Node.js [v20.x]</li>
-          <li>TypeScript [v5.x]</li>
-          <li>Python [v3.11]</li>
-          <li>SQL [PostgreSQL]</li>
-        </ul>
-      </div>
+        <div className="info-section">
+          <h2 className="section-title">Education</h2>
+          <div className="experience-list">
+            <div className="experience-item">
+              <span className="experience-date">2020 - 2023</span>
+              <h3 className="experience-title">Systems Analysis and Development</h3>
+              <p className="experience-company">Federal Institute of Mato Grosso do Sul</p>
+            </div>
+          </div>
+        </div>
 
-      <div className="terminal-section">
-        <h2 className="terminal-section-title" data-id="959529-0-2">$ cat mission.txt</h2>
-        <p>
-          {'>'} Desenvolvedor especializado em criar interfaces futuristas e sistemas robustos.<br />
-          {'>'} Focado em performance, segurança e experiência do usuário.<br />
-          {'>'} STATUS: Disponível para novos projetos<br />
-          {'>'} LOCALIZAÇÃO: [REDACTED]
-        </p>
+        <div className="info-section">
+          <h2 className="section-title">CODING PLAYLIST</h2>
+          <div className="spotify-widget">
+            <iframe
+              src="https://open.spotify.com/embed/playlist/6kKBH09gEAMFeEabhwqOGn"
+              width="100%"
+              height="380"
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
       </div>
-
-      <TerminalNav />
     </div>
   );
 };
 
-export default About; 
+export default About;

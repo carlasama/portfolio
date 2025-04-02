@@ -1,11 +1,21 @@
 {
-  "short_name": "Terminal Portfolio",
-  "name": "Portfolio com tema de terminal",
+  "short_name": "Portfolio",
+  "name": "Portfolio Pessoal",
   "icons": [
     {
-      "src": "terminal.svg",
-      "sizes": "32x32",
-      "type": "image/svg+xml"
+      "src": "images/error-icon.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "images/error-icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "images/error-icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",

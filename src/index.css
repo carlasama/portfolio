@@ -315,6 +315,7 @@ body {
   bottom: 0;
   border: 1px solid var(--terminal-accent);
   opacity: 0.3;
+  border-radius: 3px;
 }
 
 .stat-label {
@@ -426,12 +427,26 @@ body {
   }
 
   .monitor-container {
-    padding: 15px;
+    position: relative;
+    padding: 0;
+    background: none;
+    border-radius: 0;
     width: 100%;
   }
 
+  .monitor-stand {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), inset 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
   .terminal-container {
-    height: 95vh;
+    height: 100%;
     padding: 15px;
   }
 
@@ -478,17 +493,24 @@ body {
   }
 
   .cta-section {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1rem;
+    justify-content: center;
+    width: 100%;
   }
 
   .terminal-button {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 150px;
+    max-width: 200px;
+    text-align: center;
   }
 
   .ascii-art {
-    font-size: 0.5rem;
+    font-size: 0.2rem;
     margin-bottom: 1.5rem;
   }
 }
@@ -848,5 +870,339 @@ body {
 
   .info-value i {
     font-size: 1.2rem;
+  }
+}
+
+/* Sobre Mim */
+.about-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  height: 90%;
+  padding: 2rem;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--terminal-accent);
+}
+
+.about-header {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-title {
+  color: var(--terminal-accent);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.section-text {
+  color: var(--terminal-text);
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--terminal-accent);
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateX(10px);
+  background: rgba(0, 255, 0, 0.2);
+}
+
+.skill-label {
+  color: var(--terminal-accent);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-value {
+  color: var(--terminal-text);
+  font-size: 1.1rem;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.experience-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(0, 255, 0, 0.1);
+  border: 1px solid var(--terminal-accent);
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateX(10px);
+  background: rgba(0, 255, 0, 0.2);
+}
+
+.experience-date {
+  color: var(--terminal-accent);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.experience-title {
+  color: var(--terminal-text);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.experience-company {
+  color: var(--terminal-text);
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Responsividade para Sobre Mim */
+@media (max-width: 768px) {
+  .about-content {
+    padding: 1rem;
+    height: 95%;
+  }
+
+  .about-info {
+    padding: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .section-text {
+    font-size: 1rem;
+  }
+
+  .skill-item,
+  .experience-item {
+    padding: 0.8rem;
+  }
+
+  .skill-label,
+  .experience-title {
+    font-size: 1.1rem;
+  }
+
+  .skill-value,
+  .experience-company {
+    font-size: 1rem;
+  }
+}
+
+/* Estilos da Barra de Rolagem */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border: 1px solid #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border: 1px solid #444;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
+
+/* Estilo para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #1a1a1a;
+}
+
+/* Ajuste para conteúdo com rolagem */
+.projects-content,
+.contact-content,
+.about-content {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #1a1a1a;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .monitor {
+    display: none;
+  }
+
+  .monitor-screen {
+    display: none;
+  }
+
+  .monitor-stend {
+    display: none;
+  }
+
+  body {
+    padding: 0px;
+    min-height: 0;
+    font-family: var(--terminal-font);
+    line-height: 1.6;
+    color: var(--terminal-text);
+    display: block;
+  }
+
+  .monitor-content {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-content,
+  .projects-content,
+  .contact-content,
+  .about-content {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+    min-height: 100vh;
+    gap: 0;
+  }
+
+  .profile-name {
+    font-size: 1rem;
+  }
+
+  .terminal-title {
+    font-size: 1.8rem;
+  }
+
+  .terminal-header {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .info-section {
+    padding: 1rem;
+  }
+
+  .experience-item {
+    padding: 0.8rem;
+  }
+
+  .experience-date {
+    font-size: 0.8rem;
+  }
+
+  .experience-title {
+    font-size: 1rem;
+  }
+
+  .experience-company {
+    font-size: 0.9rem;
+  }
+
+  .project-card {
+    padding: 1rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+
+  .project-tech {
+    font-size: 0.8rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .contact-form button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+
+  .contact-info a {
+    font-size: 0.9rem;
+  }
+}
+
+.spotify-widget {
+  width: 100%;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.spotify-widget:hover {
+  transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+  .spotify-widget {
+    padding: 0.5rem;
+  }
+
+  .spotify-widget iframe {
+    height: 300px;
   }
 }
