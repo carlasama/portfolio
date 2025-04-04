@@ -1,0 +1,129 @@
+.terminal {
+  background-color: var(--terminal-bg);
+  color: var(--terminal-text);
+  font-family: var(--terminal-font, 'VT323', monospace);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.terminalHeader {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--terminal-accent);
+}
+
+.terminalTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.terminalControls button {
+  background: none;
+  border: 1px solid var(--terminal-accent);
+  color: var(--terminal-text);
+  padding: 4px 8px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.terminalControls button:hover {
+  background-color: var(--terminal-accent);
+  color: var(--terminal-bg);
+}
+
+.terminalContent {
+  padding: 16px;
+  height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--terminal-accent) var(--terminal-bg);
+}
+
+.terminalContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminalContent::-webkit-scrollbar-track {
+  background: var(--terminal-bg);
+}
+
+.terminalContent::-webkit-scrollbar-thumb {
+  background-color: var(--terminal-accent);
+  border-radius: 4px;
+}
+
+.command {
+  margin-bottom: 8px;
+}
+
+.commandInput {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.prompt {
+  color: var(--terminal-accent);
+  margin-right: 8px;
+}
+
+.commandOutput {
+  color: var(--terminal-dim);
+  margin-left: 16px;
+  white-space: pre-wrap;
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.input {
+  background: none;
+  border: none;
+  color: var(--terminal-text);
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+  outline: none;
+}
+
+.suggestions {
+  position: absolute;
+  background-color: var(--terminal-bg);
+  border: 1px solid var(--terminal-accent);
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+  z-index: 1;
+}
+
+.suggestion {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.suggestion:hover {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .terminal {
+    margin: 0 16px;
+  }
+
+  .terminalContent {
+    height: 300px;
+  }
+} 

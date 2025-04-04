@@ -1,0 +1,61 @@
+:root {
+  --terminal-bg: #000000;
+  --terminal-text: #00ff00;
+  --terminal-accent: #00ff00;
+  --terminal-dim: rgba(0, 255, 0, 0.5);
+  --terminal-font: 'VT323', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: var(--terminal-font);
+  line-height: 1.5;
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('../assets/fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.monitor {
+  background-color: #1a1a1a;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(0, 255, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.monitorScreen {
+  background-color: var(--terminal-bg);
+  border: 2px solid var(--terminal-accent);
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 500px;
+}
+
+.monitorContent {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .monitor {
+    padding: 10px;
+    margin: 0 16px;
+  }
+
+  .monitorScreen {
+    padding: 10px;
+    min-height: 300px;
+  }
+} 

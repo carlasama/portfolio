@@ -1,0 +1,83 @@
+.projectsContent {
+  padding: 2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.projectsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projectCard {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--terminal-accent);
+  padding: 1.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.1);
+  background: rgba(0, 255, 0, 0.05);
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  color: var(--terminal-accent);
+  margin-bottom: 1rem;
+}
+
+.projectDescription {
+  color: var(--terminal-text);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.projectTech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.techTag {
+  background: rgba(0, 255, 0, 0.1);
+  color: var(--terminal-accent);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.backButton {
+  background: none;
+  border: 1px solid var(--terminal-accent);
+  color: var(--terminal-accent);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+}
+
+.backButton:hover {
+  background: var(--terminal-accent);
+  color: var(--terminal-bg);
+}
+
+@media (max-width: 768px) {
+  .projectsContent {
+    padding: 1rem;
+  }
+
+  .projectsList {
+    grid-template-columns: 1fr;
+  }
+
+  .projectCard {
+    padding: 1rem;
+  }
+} 
