@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Press+Start+2P&family=VT323&family=Source+Code+Pro:wght@400;600&display=swap");
 
 :root {
   --terminal-bg: #000000;
@@ -7,7 +7,7 @@
   --monitor-color: #1a1a1a;
   --monitor-border: #333;
   --monitor-shadow: rgba(0, 0, 0, 0.5);
-  --terminal-font: "VT323", "Courier New", monospace;
+  --terminal-font: "Share Tech Mono", "VT323", "Courier New", monospace;
   --terminal-glow: 0 0 10px rgba(0, 255, 0, 0.5);
 }
 
@@ -15,26 +15,38 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>")
-      0 0,
-    auto;
+  cursor: default;
 }
 
 /* Cursor especial para elementos clicáveis */
 button,
 a,
 [role="button"] {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>")
-      0 0,
-    pointer;
+  cursor: pointer;
 }
 
 /* Cursor de texto para áreas de input */
 input,
 textarea {
-  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>")
-      0 0,
-    text;
+  cursor: text;
+}
+
+/* Cursor especial para dentro do monitor */
+.terminal-container * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>") 0 0, auto;
+}
+
+/* Cursor especial para elementos clicáveis dentro do monitor */
+.terminal-container button,
+.terminal-container a,
+.terminal-container [role="button"] {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>") 0 0, pointer;
+}
+
+/* Cursor de texto para áreas de input dentro do monitor */
+.terminal-container input,
+.terminal-container textarea {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' style='fill: %230f0;'><path d='M9 0 L24 15 L15 15 L15 24 L9 24 L9 0 Z'/></svg>") 0 0, text;
 }
 
 html {
@@ -106,14 +118,18 @@ body {
   background-color: var(--terminal-bg);
   padding: 25px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8),
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.8),
     inset 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  animation: flicker 0.1s infinite;
+  animation: flicker 0.1s infinite, glitch 5s infinite;
   filter: contrast(1.2) brightness(0.8);
+  font-family: var(--terminal-font);
+  letter-spacing: 0.5px;
+  line-height: 1.4;
 }
 
 @keyframes flicker {
@@ -128,6 +144,36 @@ body {
   }
 }
 
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-scan {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
 .terminal-container::before {
   content: "";
   position: absolute;
@@ -135,7 +181,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
+  background: 
+    radial-gradient(
       circle at center,
       transparent 30%,
       rgba(0, 0, 0, 0.7) 150%
@@ -152,6 +199,7 @@ body {
   z-index: 1;
   transform: perspective(800px) rotateX(3deg);
   transform-origin: center;
+  animation: glitch-scan 8s linear infinite;
 }
 
 .terminal-container::after {
@@ -173,7 +221,8 @@ body {
   z-index: 2;
   animation: scanline 4s linear infinite;
   mix-blend-mode: overlay;
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5),
+  box-shadow: 
+    inset 0 0 20px rgba(0, 0, 0, 0.5),
     inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -417,6 +466,8 @@ body {
 .stack-command {
   color: var(--terminal-text);
   font-size: 1.2rem;
+  font-family: "Source Code Pro", var(--terminal-font);
+  font-weight: 400;
 }
 
 .stack-categories {
@@ -429,6 +480,8 @@ body {
   padding-left: 1rem;
   display: flex;
   justify-content: space-between;
+  font-family: "Source Code Pro", var(--terminal-font);
+  font-weight: 400;
 }
 
 .stack-category {
@@ -533,7 +586,7 @@ body {
   background: transparent;
   color: var(--terminal-accent);
   padding: 0.5rem 1rem;
-  font-family: var(--terminal-font);
+  font-family: "Share Tech Mono", var(--terminal-font);
   font-size: 1.1rem;
   cursor: pointer;
   position: relative;
@@ -544,6 +597,7 @@ body {
   gap: 0.5rem;
   border: none;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .terminal-button::before {
@@ -722,7 +776,7 @@ body {
   background: transparent;
   color: var(--terminal-accent);
   padding: 0.5rem 1rem;
-  font-family: var(--terminal-font);
+  font-family: "Share Tech Mono", var(--terminal-font);
   font-size: 1.1rem;
   cursor: pointer;
   position: relative;
@@ -733,6 +787,7 @@ body {
   gap: 0.5rem;
   border: none;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .back-button::before {
@@ -754,11 +809,11 @@ body {
 
 .terminal-title {
   color: var(--terminal-accent);
-  font-family: var(--terminal-font);
+  font-family: "Source Code Pro", var(--terminal-font);
   font-size: 1.8rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
   position: relative;
   display: inline-block;
@@ -1251,7 +1306,7 @@ body {
   background: transparent;
   color: var(--terminal-accent);
   padding: 0.5rem 1rem;
-  font-family: var(--terminal-font);
+  font-family: "Share Tech Mono", var(--terminal-font);
   font-size: 1.1rem;
   cursor: pointer;
   position: relative;
@@ -1262,6 +1317,7 @@ body {
   gap: 0.5rem;
   border: none;
   text-shadow: 0 0 5px rgba(0, 255, 0, 0.3);
+  letter-spacing: 0.5px;
 }
 
 .terminal-button::before {
@@ -1426,4 +1482,76 @@ body {
   background-blend-mode: overlay;
   box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3),
     inset 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajuste para títulos */
+.terminal-title {
+  font-family: "Source Code Pro", var(--terminal-font);
+  letter-spacing: 1px;
+}
+
+/* Ajuste para código */
+.stack-command,
+.stack-content {
+  font-family: "Source Code Pro", var(--terminal-font);
+  font-weight: 400;
+}
+
+/* Ajuste para botões */
+.terminal-button,
+.back-button {
+  font-family: "Share Tech Mono", var(--terminal-font);
+  letter-spacing: 0.5px;
+}
+
+/* Efeito de distorção do tubo */
+.terminal-container {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Efeito de vazamento de luz */
+.terminal-container::before {
+  box-shadow: 
+    inset 0 0 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 15px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de fósforo residual */
+.terminal-container {
+  text-shadow: 0 0 1px rgba(0, 255, 0, 0.2);
+  animation: 
+    flicker 0.1s infinite,
+    glitch 5s infinite,
+    phosphor 2s infinite;
+}
+
+@keyframes phosphor {
+  0% {
+    text-shadow: 0 0 1px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 2px rgba(0, 255, 0, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 1px rgba(0, 255, 0, 0.2);
+  }
+}
+
+/* Efeito de reflexo do tubo */
+.terminal-container::before {
+  background-image: 
+    linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.1) 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  background-blend-mode: overlay;
 }

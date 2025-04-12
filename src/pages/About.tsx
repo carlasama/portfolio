@@ -56,7 +56,7 @@ const About: React.FC<AboutProps> = ({ onBack }) => {
         </div>
 
         <div className="info-section">
-          <h2 className="section-title">CODING PLAYLIST</h2>
+          {/* <h2 className="section-title">CODING PLAYLIST</h2>
           <div className="spotify-widget">
             <iframe
               src="https://open.spotify.com/embed/playlist/6kKBH09gEAMFeEabhwqOGn"
@@ -68,7 +68,7 @@ const About: React.FC<AboutProps> = ({ onBack }) => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
