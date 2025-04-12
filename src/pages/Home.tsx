@@ -1,11 +1,39 @@
 import React, { useState } from "react";
 import AsciiArt from "../components/AsciiArt";
 import Projects from "./Projects";
-import Contact from "./Contact";
+// import Contact from "./Contact";
 import About from "./About";
+import { GrLinkedinOption } from "react-icons/gr";
+
+import { MdOutlineAlternateEmail } from "react-icons/md";
+
+import { TfiGithub } from "react-icons/tfi";
 
 const Home: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<"home" | "projects" | "contact" | "about">("home");
+  const contacts = [
+    {
+      icon: <TfiGithub />,
+      label: "GitHub",
+      url: "https://github.com/carlasama",
+      color: "#666666",
+    },
+    {
+      icon: <GrLinkedinOption />,
+      label: "LinkedIn",
+      url: "https://linkedin.com/in/carla-sama",
+      color: "#666666",
+    },
+    {
+      icon: <MdOutlineAlternateEmail />,
+      label: "Email",
+      url: "mailto:carlavxsamaniego@gmail.com",
+      color: "#666666",
+    },
+  ];
+
+  const [currentPage, setCurrentPage] = useState<"home" | "projects" | "about">(
+    "home"
+  );
 
   const asciiArt = `
 
@@ -26,9 +54,9 @@ const Home: React.FC = () => {
       return <Projects onBack={() => setCurrentPage("home")} />;
     }
 
-    if (currentPage === "contact") {
-      return <Contact onBack={() => setCurrentPage("home")} />;
-    }
+    // if (currentPage === "contact") {
+    //   return <Contact onBack={() => setCurrentPage("home")} />;
+    // }
 
     if (currentPage === "about") {
       return <About onBack={() => setCurrentPage("home")} />;
@@ -39,47 +67,58 @@ const Home: React.FC = () => {
         <div className="profile-section">
           <div className="profile-info">
             <AsciiArt art={asciiArt} />
-            <h1 className="profile-name">SOFTWARE DEVELOPER</h1>
+            <div className="container-me">
+              <h1 className="profile-name">SOFTWARE DEVELOPER</h1>
+              <div className="contact-grid">
+                {contacts.map((contact, index) => (
+                  <a
+                    key={index}
+                    href={contact.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-item"
+                    style={
+                      {
+                        "--contact-color": contact.color,
+                      } as React.CSSProperties
+                    }
+                  >
+                    <div className="contact-icon">{contact.icon}</div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="quick-stats">
-          <div className="stat-item">
-            <div className="stat-label">Front-end</div>
-            <div className="stat-value">Vue.js</div>
-            <div className="stat-detail">Angular, React</div>
+        <div className="terminal-stacks">
+          <div className="stack-line">
+            <span className="terminal-prompt">$</span>
+            <span className="stack-command">cat stacks.txt</span>
           </div>
-          <div className="stat-item">
-            <div className="stat-label">Back-end</div>
-            <div className="stat-value">Node.js</div>
-            <div className="stat-detail">Express, MongoDB</div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-label">DevOps</div>
-            <div className="stat-value">Docker</div>
-            <div className="stat-detail">AWS, CI/CD</div>
-          </div>
-        </div>
+          <div className="stack-content">
+            <div className="stack-categories">
+              <div className="stack-category">
+                <span className="category-label">Front-end:</span>
+                <span className="stack-items">Vue.js, Angular, React</span>
+              </div>
+              <div className="stack-category">
+                <span className="category-label">Back-end:</span>
+                <span className="stack-items">Node.js, Express, MongoDB</span>
+              </div>
+              <div className="stack-category">
+                <span className="category-label">DevOps:</span>
+                <span className="stack-items">Docker, AWS, CI/CD</span>
+              </div>
+            </div>
 
-        <div className="cta-section">
-          <button 
-            className="terminal-button"
-            onClick={() => setCurrentPage("about")}
-          >
-            About Me
-          </button>
-          <button 
-            className="terminal-button"
-            onClick={() => setCurrentPage("contact")}
-          >
-            Contact
-          </button>
-          <button
-            className="terminal-button"
-            onClick={() => setCurrentPage("projects")}
-          >
-            Projects
-          </button>
+            <div className="profile-image">
+              <img
+                src="https://avatars.githubusercontent.com/u/84520565?v=4"
+                alt="Profile"
+              />
+            </div>
+          </div>
         </div>
       </>
     );
@@ -99,21 +138,34 @@ const Home: React.FC = () => {
 
         <div className="terminal-header">
           <div className="system-info">
-            <div>SYSTEM_READY</div>
+            {/* <div>SYSTEM_READY</div>
             <div>MEMORY: 98% AVAILABLE</div>
-            <div>STATUS: ONLINE</div>
+            <div>STATUS: ONLINE</div> */}
+            <div className="terminal-id">INIT_SEQUENCE_001</div>
           </div>
-          <div className="terminal-id">INIT_SEQUENCE_001</div>
+          <div className="terminal-actions">
+            <button
+              className="terminal-button"
+              onClick={() => setCurrentPage("about")}
+            >
+              ./about
+            </button>
+            {/* <button 
+              className="terminal-button"
+              onClick={() => setCurrentPage("contact")}
+            >
+              ./contact
+            </button> */}
+            <button
+              className="terminal-button"
+              onClick={() => setCurrentPage("projects")}
+            >
+              ./projects
+            </button>
+          </div>
         </div>
 
         <div className="home-content">{renderContent()}</div>
-
-        {/* <div className="status-bar">
-          <div className="status-item">CPU: 98% OPERATIONAL</div>
-          <div className="status-item">NETWORK: CONNECTED</div>
-          <div className="status-item">SECURITY: ACTIVE</div>
-          <span>Última Atualização: {new Date().toLocaleDateString()}</span>
-        </div> */}
       </div>
 
       <div className="monitor-stand"></div>

@@ -1,38 +1,59 @@
 import React from 'react';
+import { CiLinkedin } from 'react-icons/ci';
+import { HiOutlineMail } from 'react-icons/hi';
+import { TiSocialGithub } from 'react-icons/ti';
 
 interface ContactProps {
   onBack: () => void;
 }
 
 const Contact: React.FC<ContactProps> = ({ onBack }) => {
+  const contacts = [
+    {
+      icon: <TiSocialGithub />,
+      label: 'GitHub',
+      url: 'https://github.com/carlasama',
+      color: '#666666'
+    },
+    {
+      icon: <CiLinkedin />,
+      label: 'LinkedIn',
+      url: 'https://linkedin.com/in/carla-sama',
+      color: '#666666'
+    },
+    {
+      icon: <HiOutlineMail />,
+      label: 'Email',
+      url: 'mailto:carlavxsamaniego@gmail.com',
+      color: '#666666'
+    },
+  ];
+
   return (
     <div className="contact-content">
       <div className="contact-header">
         <button className="back-button" onClick={onBack}>
           <span>←</span> Back
         </button>
-        <h2 className="terminal-title">CONTACT</h2>
+        <h2 className="terminal-title">Contact</h2>
       </div>
 
-      <div className="contact-info">
-        <div className="info-item">
-          <span className="info-label">Email:</span>
-          <a href="mailto:carlavxsamaniego@gmail.com" className="info-value">
-            <i className="fas fa-envelope"></i> carlavxsamaniego@gmail.com
+      <div className="contact-grid">
+        {contacts.map((contact, index) => (
+          <a
+            key={index}
+            href={contact.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-item"
+            style={{ '--contact-color': contact.color } as React.CSSProperties}
+          >
+            <div className="contact-icon">
+              {contact.icon}
+            </div>
+            <span className="contact-label">{contact.label}</span>
           </a>
-        </div>
-        <div className="info-item">
-          <span className="info-label">GitHub:</span>
-          <a href="https://github.com//carlasama" target="_blank" rel="noopener noreferrer" className="info-value">
-            <i className="fab fa-github"></i> github.com/carlasama
-          </a>
-        </div>
-        <div className="info-item">
-          <span className="info-label">LinkedIn:</span>
-          <a href="https://linkedin.com/in//carla-sama" target="_blank" rel="noopener noreferrer" className="info-value">
-            <i className="fab fa-linkedin"></i> linkedin.com/in/carla-sama
-          </a>
-        </div>
+        ))}
       </div>
     </div>
   );
